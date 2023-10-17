@@ -11,7 +11,7 @@
         <div class="feature col">
           <h3 class="fs-2 text-body-emphasis">{{ post.title }}</h3>
           <p>{{ post.text }}</p>
-          <a href="#" class="icon-link">
+          <a href="{{ url_for('view_post', post_id=post.id) }}" class="icon-link">
             Read More
             <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
           </a>

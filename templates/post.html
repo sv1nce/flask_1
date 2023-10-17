@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block content %}
+    <h4>{{ post.title }}</h4>
+    <p>{{ post.text }}</p>
+    <a href="{{ url_for('posts') }}" class="icon-link">
+        Back to All Posts
+        <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+    </a>
+    <a href="{{ url_for('edit_post', post_id=post.id) }}" class="icon-link">
+        Edit Post
+        <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+    </a>
+    <a href="{{ url_for('delete_post', post_id=post.id) }}" class="icon-link">
+        Delete Post
+        <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+    </a>
+{% endblock %}
