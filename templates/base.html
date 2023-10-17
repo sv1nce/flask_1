@@ -19,7 +19,8 @@
       
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
               <li><a href="{{ url_for('home') }}" class="nav-link px-2 link-secondary">Home</a></li>
-              <li><a href="{{ url_for('contact') }}" class="nav-link px-2">Contact Us</a></li>
+              <li><a href="{{ url_for('add') }}" class="nav-link px-2">Add Post</a></li>
+              <li><a href="{{ url_for('posts') }}" class="nav-link px-2">Posts</a></li>
               <li><a href="{{ url_for('about') }}" class="nav-link px-2">About</a></li>
             </ul>
       
@@ -30,7 +31,7 @@
           </header>
         <div class="content">
             {% block content %}
-                <h1>Hello</h1>
+                
             {% endblock %}
         </div>  
         
@@ -43,9 +44,10 @@
             </div>
         
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="{{ url_for('home') }}" class="nav-link px-2 link-secondary">Home</a></li>
-                <li><a href="{{ url_for('contact') }}" class="nav-link px-2">Contact Us</a></li>
-                <li><a href="{{ url_for('about') }}" class="nav-link px-2">About</a></li>
+              <li><a href="{{ url_for('home') }}" class="nav-link px-2 link-secondary">Home</a></li>
+              <li><a href="{{ url_for('add') }}" class="nav-link px-2">Add Post</a></li>
+              <li><a href="{{ url_for('posts') }}" class="nav-link px-2">Posts</a></li>
+              <li><a href="{{ url_for('about') }}" class="nav-link px-2">About</a></li>
             </ul>
           </footer>
     </div>
