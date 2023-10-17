@@ -60,7 +60,7 @@ def edit_post(post_id):
         post.text = request.form['text']
         try:
             db.session.commit()
-            return redirect ('/posts', post_id=post_id)
+            return redirect ('/posts')
         except:
             return 'An error occurred while editing the post'
     return render_template('edit_post.html', post=post)
