@@ -13,11 +13,6 @@ class Post(db.Model):
     
     
     
-
-@app.route('/')
-def home():
-    return render_template('home.html')
-
 @app.route('/add', methods= ['POST', 'GET'])
 def add():
     if request.method == 'POST':
@@ -34,23 +29,6 @@ def add():
             return f'While adding a post there was a mistake'
     else:
         return render_template('add.html')
-    
-@app.route('/posts')
-def posts():
-    posts = Post.query.all()
-    return render_template('posts.html', posts=posts)
-
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
-@app.route('/post/<int:post_id>')
-def view_post(post_id):
-    post = Post.query.get(post_id)
-    if post :
-        return render_template('post.html', post=post)
-    else:
-        return "Post not found", 404
 
 @app.route('/edit_post/<int:post_id>', methods=['GET', 'POST'])
 def edit_post(post_id):
@@ -74,6 +52,28 @@ def delete_post(post_id):
         return redirect('/posts')
     except:
         return 'An error occurred while deleting the post'
+
+@app.route('/post/<int:post_id>')
+def view_post(post_id):
+    post = Post.query.get(post_id)
+    if post :
+        return render_template('post.html', post=post)
+    else:
+        return "Post not found", 404
+
+@app.route('/')
+def home():
+    return render_template('home.html')
+    
+@app.route('/posts')
+def posts():
+    posts = Post.query.all()
+    return render_template('posts.html', posts=posts)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
        
 if __name__ == '__main__':
     app.run(debug=True)
